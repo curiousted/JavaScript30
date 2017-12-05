@@ -18,28 +18,70 @@
     }
 
     // Regular
+    console.log('Hello');
 
     // Interpolated
+    console.log('Hello I am a %s string!', '💩');
 
     // Styled
+    console.log('%c I am some great text', 'font-size: 50px; color: floralwhite; background: black');
 
     // warning!
+    console.warn('OH NOOO');
 
     // Error :|
+    console.error('Damnit!');
 
     // Info
+    console.info('A leap year isn\'t just every four years!');
 
     // Testing
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('ohmygod'), 'That is wrong!');
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
+
+    console.clear();
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
 
     // counting
+    console.count('Maryline');
+    console.count('Maryline');
+    console.count('David');
+    console.count('Maryline');
+    console.count('David');
+    console.count('David');
+    console.count('Maryline');
+    console.count('Maryline');
+    console.count('David');
+    console.count('Maryline');
 
     // timing
+    console.time('sorting an array of numbers');
+    [1, 9, 4 , 6, 54, 78, 100, 3].sort((a, b) => a - b);
+    console.timeEnd('sorting an array of numbers');
+    console.time('fetching data');
+    fetch('https://api.github.com/users/siriusted')
+    .then(resp => resp.json())
+    .then(data => {
+      console.timeEnd('fetching data');
+      console.log(data);
+    })
+
+    console.table(dogs);
 
   </script>
 </body>
