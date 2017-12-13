@@ -46,6 +46,29 @@
 <script>
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
+//Method 1 by myself
+// const articles = ['The', 'A', 'An'];
+// function sortBands(a, b) {
+//   const [aSplit, bSplit] = [a.split(' '), b.split(' ')]; 
+//   const first = articles.includes(aSplit[0]) ? aSplit.slice(1).join(' ') : aSplit.join(' ');
+//   const second = articles.includes(bSplit[0]) ? bSplit.slice(1).join(' ') : bSplit.join(' ');
+
+//   return first < second ? -1 : 1;
+// }
+
+// bands.sort(sortBands);
+
+
+//Simpler method 2 by Wes
+function strip(bandName) {
+  return bandName.replace(/^(a |the |an )/i, '').trim();
+}
+
+bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
+
+document.getElementById('bands').innerHTML = bands.map(band => `<li>${band}</li>`).join('');
+console.table(bands);
+
 
 </script>
 
